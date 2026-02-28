@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class CANDriveSubsystem extends SubsystemBase {
@@ -38,5 +39,10 @@ public class CANDriveSubsystem extends SubsystemBase {
 
     public void stop() {
         drive.stopMotor();
+    }
+
+    public Command exampleMethodCommand() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'exampleMethodCommand'");
     }
 }

@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -51,3 +52,12 @@ public RobotContainer() {
     drivercontroller.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 }
+driveSubsystem.setDefaultCommand(
+    new RunCommand(
+        () -> driveSubsystem.arcadeDrive(
+            -driverController.getLeftY(),
+            driverController.getRightX()
+        ),
+        driveSubsystem
+    )
+);
