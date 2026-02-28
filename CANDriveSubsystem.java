@@ -1,16 +1,17 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class CANDriveSubsystem extends SubsystemBase {
 
-    private final WPI_TalonSRX leftLeader;
-    private final WPI_TalonSRX leftFollower;
-    private final WPI_TalonSRX rightLeader;
-    private final WPI_TalonSRX rightFollower;
+    private final CANSparkMax leftLeader;
+    private final CANSparkMax leftFollower;
+    private final CANSparkMax rightLeader;
+    private final CANSparkMax rightFollower;
 
     private final MotorControllerGroup leftGroup;
     private final MotorControllerGroup rightGroup;
@@ -20,10 +21,10 @@ public class CANDriveSubsystem extends SubsystemBase {
     @SuppressWarnings("removal")
     public CANDriveSubsystem() {
 
-        leftLeader = new WPI_TalonSRX(1);
-        leftFollower = new WPI_TalonSRX(2);
-        rightLeader = new WPI_TalonSRX(3);
-        rightFollower = new WPI_TalonSRX(4);
+        leftLeader = new CANSparkMax(1, MotorType.kBrushless);
+        leftFollower = new CANSparkMax(2, MotorType.kBrushless);
+        rightLeader = new CANSparkMax(3, MotorType.kBrushless);
+        rightFollower = new CANSparkMax(4, MotorType.kBrushless);
 
         leftGroup = new MotorControllerGroup(leftLeader, leftFollower);
         rightGroup = new MotorControllerGroup(rightLeader, rightFollower);
