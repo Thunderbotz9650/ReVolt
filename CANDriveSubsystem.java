@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,15 +18,18 @@ public class CANDriveSubsystem extends SubsystemBase {
 
     private final DifferentialDrive drive;
 
-        leftLeader = new CimMotorController(1, MotorType.kBrush);
-        leftFollower = new CimMotorController(2, MotorType.kBrush);
-        rightLeader = new CimMotorController(3, MotorType.kBrush);
-        rightFollower = new CimMotorController(4, MotorType.kBrush);
+    @SuppressWarnings("deprecation")
+    public CANDriveSubsystem() {
+
+        leftLeader = new CANSparkMax(1, MotorType.kBrushless);
+        leftFollower = new CANSparkMax(2, MotorType.kBrushless);
+        rightLeader = new CANSparkMax(3, MotorType.kBrushless);
+        rightFollower = new CANSparkMax(4, MotorType.kBrushless);
 
         leftGroup = new MotorControllerGroup(leftLeader, leftFollower);
         rightGroup = new MotorControllerGroup(rightLeader, rightFollower);
 
-        rightGroup.setInverted(true); // Most drivetrains need one side inverted
+        rightGroup.setInverted(true); 
 
         drive = new DifferentialDrive(leftGroup, rightGroup);
     }
@@ -38,8 +42,17 @@ public class CANDriveSubsystem extends SubsystemBase {
         drive.stopMotor();
     }
 
-	public Command exampleMethodCommand() {
-
-		throw new UnsupportedOperationException("Unimplemented method 'exampleMethodCommand'");
-	}
+    public Command exampleMethodCommand() {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'exampleMethodCommand'");
+    }
 }
+driveSubsystem.setDefaultCommand(
+    new RunCommand(
+        () -> driveSubsystem.arcadeDrive(
+            -driverController.getLeftY(),
+            driverController.getRightX()
+        ),
+        driveSubsystem
+    )
+);
