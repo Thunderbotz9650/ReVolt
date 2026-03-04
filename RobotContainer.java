@@ -25,28 +25,21 @@ public class RobotContainer {
   }
 
   private void configureDefaultCommands() {
-    driveSubsystem.setDefaultCommand(
-        new RunCommand(
-            () ->
-                driveSubsystem.arcadeDrive(
-                    -driverController.getLeftY(),
-                    driverController.getRightX()),
-            driveSubsystem));
+    driveSubsystem.setDefaultCommand(new RunCommand(() ->driveSubsystem.arcadeDrive(-driverController.getLeftY(),driverController.getRightX()),driveSubsystem));
   }
 
   private void configureButtonBindings() {
-    // Driver buttons
-    new JoystickButton(driverController, XboxController.Button.kRightBumper.value)
-        .whileTrue(new StartEndCommand(intakeSubsystem::intakeIn, intakeSubsystem::stop, intakeSubsystem));
-
-    new JoystickButton(driverController, XboxController.Button.kLeftBumper.value)
-        .whileTrue(new StartEndCommand(intakeSubsystem::intakeOut, intakeSubsystem::stop, intakeSubsystem));
-
     // Operator buttons
     new JoystickButton(operatorController, XboxController.Button.kY.value)
         .whileTrue(new StartEndCommand(shooterSubsystem::shoot, shooterSubsystem::stop, shooterSubsystem));
 
     new JoystickButton(operatorController, XboxController.Button.kA.value)
         .whileTrue(new StartEndCommand(shooterSubsystem::feed, shooterSubsystem::stop, shooterSubsystem));
+
+    new JoystickButton(operatorController, XboxController.Button.kRightBumper.value)
+        .whileTrue(new StartEndCommand(intakeSubsystem::intakeIn, intakeSubsystem::stop, intakeSubsystem));
+
+    new JoystickButton(operatorController, XboxController.Button.kLeftBumper.value)
+        .whileTrue(new StartEndCommand(intakeSubsystem::intakeOut, intakeSubsystem::stop, intakeSubsystem));
   }
 }
