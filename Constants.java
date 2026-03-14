@@ -28,8 +28,8 @@ public final class Constants {
     public static final int kIntakeMotorAId = 5;
     public static final int kIntakeMotorBId = 6;
 
-    public static final double kIntakeSpeed = 0.75;
-    public static final double kOuttakeSpeed = -0.6;
+    public static final double kIntakeSpeed = 1.0;
+    public static final double kOuttakeSpeed = -1.0;
 
     private IntakeConstants() {}
   }
@@ -39,7 +39,7 @@ public final class Constants {
     public static final int kShooterMotorBId = 8;
 
     public static final double kShootSpeed = 1.0;
-    public static final double kFeedSpeed = 0.45;
+    public static final double kFeedSpeed = 1.0;
 
     private ShooterConstants() {}
   }

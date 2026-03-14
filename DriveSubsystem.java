@@ -5,12 +5,14 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ControllerConstants;
 import frc.robot.Constants.DriveConstants;
+import com.ctre.phoenix6.hardware.TalonFXS;
+
 
 public class DriveSubsystem extends SubsystemBase {
-  private final TalonFXS frontLeft = new TalonFXS(DriveConstants.kFrontLeftMotorId);
-  private final TalonFXS rearLeft = new TalonFXS(DriveConstants.kRearLeftMotorId);
-  private final TalonFXS frontRight = new TalonFXS(DriveConstants.kFrontRightMotorId);
-  private final TalonFXS rearRight = new TalonFXS(DriveConstants.kRearRightMotorId);
+  private final TalonFXS frontLeft = new TalonFXS(0);//id 0
+  private final TalonFXS rearLeft = new TalonFXS(5);//id 5
+  private final TalonFXS frontRight = new TalonFXS(4);//id 4
+  private final TalonFXS rearRight = new TalonFXS(1);//id 1
 
   private final DifferentialDrive drive =
       new DifferentialDrive(this::setLeftOutput, this::setRightOutput);
@@ -19,8 +21,11 @@ public class DriveSubsystem extends SubsystemBase {
 
   public void arcadeDrive(double forward, double rotation) {
     drive.arcadeDrive(
-        MathUtil.applyDeadband(forward, ControllerConstants.kDriveDeadband),
-        MathUtil.applyDeadband(rotation, ControllerConstants.kDriveDeadband));
+        // MathUtil.applyDeadband(forward, ControllerConstants.kDriveDeadband),
+        // MathUtil.applyDeadband(rotation, ControllerConstants.kDriveDeadband)
+        forward,rotation
+        )
+        ;
   }
 
   public void stop() {

@@ -20,12 +20,13 @@ Set your real CAN IDs in `Constants.java`:
 ### Driver controller (port 0)
 - Left stick Y: forward/reverse
 - Right stick X: turn
-- Right bumper: intake in
-- Left bumper: intake out
+
 
 ### Operator controller (port 1)
 - Y button: shooter full speed
 - A button: shooter feed speed
+- Right bumper: intake in
+- Left bumper: intake out
 
 ## Important tuning notes
 - Verify inversion on left/right drive sides and on intake/shooter as needed.

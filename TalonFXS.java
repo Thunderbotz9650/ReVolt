@@ -1,24 +1,24 @@
-package frc.robot.subsystems;
+// package frc.robot.subsystems;
 
-public class TalonFXS {
+// public class TalonFXS {
 
-    public TalonFXS(int kfrontleftmotorid) {
+//     public TalonFXS(int kfrontleftmotorid) {
     
-    }
+//     }
 
-    public void set(double signedOutput) {
+//     public void set(double signedOutput) {
         
-        throw new UnsupportedOperationException("Unimplemented method 'set'");
-    }
+//         throw new UnsupportedOperationException("Unimplemented method 'set'");
+//     }
 
-    public void follow(TalonFXS intakeMotorA) {
+//     public void follow(TalonFXS intakeMotorA) {
         
-        throw new UnsupportedOperationException("Unimplemented method 'follow'");
-    }
+//         throw new UnsupportedOperationException("Unimplemented method 'follow'");
+//     }
 
-    public void stopMotor() {
+//     public void stopMotor() {
        
-        throw new UnsupportedOperationException("Unimplemented method 'stopMotor'");
-    }
+//         throw new UnsupportedOperationException("Unimplemented method 'stopMotor'");
+//     }
 
-}
+// }
